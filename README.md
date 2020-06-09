@@ -2,25 +2,28 @@
 Client &amp; Server for a Phone Catalogue made with React and Node
 
 ## Run Server 
+In the server directory, you can run:
 
-download the repo and use npm i to install the dependencies
+### `cd phone-catalogue-server`
 
-npm run dev to run the server (port 3003)
+### `npm install`
+To install the dependencies
 
-## Available Scripts
+### `npm run dev`
+To run the server (port 3003)
 
-In the project directory, you can run:
+## Run React App 
+In the client directory, you can run:
 
-### `npm start`
+### `cd phone-catalogue-client`
+
+### `npm run start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+### `npm run test`
 
 Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
