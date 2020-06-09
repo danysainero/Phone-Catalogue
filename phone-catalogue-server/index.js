@@ -1,50 +1,22 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan')
+const dotenv = require('dotenv').config();
 const cors = require('cors');
-const phones = require('./src/data/phone-list.json');
+
 const app = express();
 
-
-
 app.use(cors());
-app.use(express.json());
+app.use(morgan(':method  :status :url'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static('public'));
+app.use('/api', require('./src/routes/index'));
 
-const items = [{
-    id: 1,
-    name: "pepe",
-    phoneNumber: "656444444"
-},
-{
-    id: 2,
-    name: "maria",
-    phoneNumber: "22222222"
-}
-]
-
-//Methods
-//GET
-app.get('/items', (req, res)=>{
-    const allItems = [...phones.values()];
-    console.log(allItems);
-    
-    res.json(allItems);
+(async function main() {
+  app.listen(process.env._PORT, () => {
+    console.log(`example listening ports ${process.env._PORT}`)
 });
+})();
 
-app.get('/items/:id', (req, res)=>{
-    const phoneId= req.params.id;
-    const allItems = [...phones.values()];
-    const filteredPhone = allItems.filter((item) => {
-        return item.id == phoneId;
-    });
-    console.log(filteredPhone);
-    
-    if(!filteredPhone) {
-        res.sendStatus(400);
-    } else {
-        res.json(filteredPhone);
-    }
-});
-
-
-app.listen(3002, () => {
-    console.log('example listening ports 3002')
-});
+module.exports = app;

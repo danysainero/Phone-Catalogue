@@ -9,7 +9,7 @@ class Detail extends React.Component {
   id = this.props.match.params.id;
 
   componentDidMount() {
-    axios.get(`http://localhost:3002/items/${this.id}`).then((res) => {
+    axios.get(`http://localhost:3003/api/V1/phones/${this.id}`).then((res) => {
       const items = res.data;
       this.setState({ items });
     });
@@ -21,7 +21,7 @@ class Detail extends React.Component {
     return (
       <div className="details-page">
           <div className="details-wrapper">
-        <div>  <img alt="mobile" className="item-image" src={`/images/${item?.imageFileName}`}/></div>  
+        <div>  <img alt="mobile" className="item-image" src={`http://localhost:3003/images/${item?.imageFileName}`}/></div>  
         <div>
         <p>Name: {item?.name}</p>
        
