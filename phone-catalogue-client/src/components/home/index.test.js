@@ -1,15 +1,19 @@
+import { cleanup } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import React from 'react';
-import { cleanup, render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import home from './home';
+import Home from './index';
 
-describe('<home />', () => {
+describe('Home', () => {
   afterEach(cleanup);
 
-  test('it should mount', () => {
-    const { getByTestId } = render(<home />);
+  it('it should mount', () => {
+    const component = shallow(<Home debug />);
+    expect(component).toMatchSnapshot();
+    
+    /* 
+    const { getByTestId } = render(Home);
     const home = getByTestId('home');
 
-    expect(home).toBeInTheDocument();
+    expect(home).toBeInTheDocument(); */
   });
 });
