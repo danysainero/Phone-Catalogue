@@ -2,7 +2,7 @@
 Client &amp; Server for a Phone Catalogue made with React and Node
 
 ## Run Server 
-In the client directory, you can run:
+In the server directory, you can run:
 
 ### `cd phone-catalogue-server`
 
