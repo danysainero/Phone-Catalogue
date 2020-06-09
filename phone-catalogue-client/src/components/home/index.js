@@ -16,7 +16,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="home-wrapper">
+      <div className="home-wrapper" data-testid="Home">
         <h1>PHONES {process.env.REACT_APP_API_URL}</h1>
         <div className="card-wrapper">
           {this.state.items.map((item) => {
