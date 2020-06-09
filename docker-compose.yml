@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  server:
+    build: ./phone-catalogue-server
+    ports: 
+      - "3003:3003"
+  client:
+    build: ./phone-catalogue-client
+    ports: 
+      - "3000:80"

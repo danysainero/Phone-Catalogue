@@ -15,7 +15,7 @@
   column-width: 45%;
   margin: 0 auto;
   padding: 10px 120px;
-  width: calc(100vw-120px);
+  width: calc(80vw);
 }
 
 .card-container {
