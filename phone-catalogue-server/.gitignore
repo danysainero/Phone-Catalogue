@@ -12,7 +12,6 @@ build/Release
 node_modules/
 jspm_packages/
 web_modules/
-.env
 .env.test
 dist
 .vscode-test

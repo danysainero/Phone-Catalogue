@@ -14,8 +14,8 @@ app.use(express.static('public'));
 app.use('/api', require('./src/routes/index'));
 
 (async function main() {
-  app.listen(process.env._PORT, () => {
-    console.log(`example listening ports ${process.env._PORT}`)
+  app.listen(3003, () => {
+    console.log(`example listening ports 3003`)
 });
 })();
 
