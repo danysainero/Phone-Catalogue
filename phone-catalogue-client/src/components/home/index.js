@@ -8,7 +8,7 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:3002/items`).then((res) => {
+    axios.get(`http://localhost:3003/api/V1/phones`).then((res) => {
       const items = res.data;
       this.setState({ items });
     });
@@ -17,7 +17,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-wrapper">
-      <h1>PHONES</h1>
+      <h1>PHONES {process.env.REACT_APP_API_URL}</h1>
       <div className="card-wrapper">
         {this.state.items.map((item) => {
           return (
