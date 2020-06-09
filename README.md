@@ -1,7 +1,11 @@
 # Phone-Catalogue
 Client &amp; Server for a Phone Catalogue made with React and Node
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run Server 
+
+download the repo and use npm i to install the dependencies
+
+npm run dev to run the server (port 3003)
 
 ## Available Scripts
 
