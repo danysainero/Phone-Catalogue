@@ -6,10 +6,10 @@ class Detail extends React.Component {
   state = {
     items: [],
   };
-  id = this.props.match.params.id;
 
   componentDidMount() {
-    axios.get(`http://localhost:3003/api/V1/phones/${this.id}`).then((res) => {
+  const id = this.props.match.params.id;
+    axios.get(`http://localhost:3003/api/V1/phones/${id}`).then((res) => {
       const items = res.data;
       this.setState({ items });
     });
@@ -19,7 +19,7 @@ class Detail extends React.Component {
     const item = this.state.items[0];
 
     return (
-      <div className="details-page">
+      <div className="details-page" data-testid="Detail">
         <div className="details-wrapper">
           <div>
           { this.state.items.map((item, i) => {
