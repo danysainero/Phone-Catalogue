@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import './styles.css';
+import "./styles.css";
 
 class Detail extends React.Component {
   state = {
@@ -9,7 +9,7 @@ class Detail extends React.Component {
   id = this.props.match.params.id;
 
   componentDidMount() {
-    axios.get(`http://localhost:3002/items/${this.id}`).then((res) => {
+    axios.get(`http://localhost:3003/api/V1/phones/${this.id}`).then((res) => {
       const items = res.data;
       this.setState({ items });
     });
@@ -20,33 +20,35 @@ class Detail extends React.Component {
 
     return (
       <div className="details-page">
-          <div className="details-wrapper">
-        <div>  <img alt="mobile" className="item-image" src={`/images/${item?.imageFileName}`}/></div>  
-        <div>
-        <p>Name: {item?.name}</p>
-       
-        <h3>Price: {item?.price}€</h3>
-        <p>
-          <b>Manufacturer:</b> {item?.manufacturer}
-        </p>
-        <p>
-          <b>Color:</b> {item?.color}
-        </p>
-        <p>
-          <b>Screen:</b> {item?.screen}  
-        </p>
-        <p>
-          <b>Processor:</b> {item?.processor}
-        </p>
-        <p>
-          <b>Ram:</b> {item?.ram}
-        </p>
-        <p>
-          <b>Description:</b> {item?.description}
-        </p>
-        </div> 
-        </div> 
-        <button onClick={() => this.props.history.push(`/phones`)}>Back</button>
+        <div className="details-wrapper">
+          <div>
+          { this.state.items.map((item, i) => {
+          return ( <img key={i}
+            alt="mobile"
+            className="item-image"
+            src={`http://localhost:3003/images/${item?.imageFileName}`}
+          />)})}
+          </div>
+          <div className="details-info">
+            <p>{item?.name}</p>
+            <p><span>Price:</span> {item?.price}€</p>
+            <p><span>Manufacturer:</span>{item?.manufacturer}</p>
+            <p> <span>Color: </span>
+              <span
+                className="color-square"
+                style={{ background: item?.color }}
+              ></span>
+            </p>
+            <p><span>Screen:</span>{item?.screen} </p>
+            <p><span>Processor:</span>{item?.processor}</p>
+            <p><span>Ram:</span>{item?.ram}</p>
+            <p><span>Description:</span>{item?.description}</p>
+            <div className="container-btn">
+            <button className="btn" onClick={() => this.props.history.push(`/phones`)}>Back to home</button>
+            </div>
+          </div>
+        </div>
+     
       </div>
     );
   }
