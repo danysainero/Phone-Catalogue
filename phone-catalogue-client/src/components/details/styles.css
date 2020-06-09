@@ -1,8 +1,120 @@
 .details-page {
-    padding: 3rem 1rem;
-    border: solid red;
+  padding: 1rem;
+  background: #f6f6f6;
 }
 
-.details-wrapper{
-    display: flex;
+.details-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+.details-wrapper div {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+  padding: 3rem 1rem;
+}
+.details-wrapper div:first-child {
+  padding-top: 7%;
+}
+
+.details-info p {
+  color: #4d4c4c;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.details-info p span {
+  color: #19ae8e;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 10px 10px 0;
+  text-align: left;
+}
+
+.details-info p:last-of-type span {
+  margin: 10px 10px 0 0;
+}
+
+.details-info p:first-of-type {
+  border-bottom: 4px solid #898a89;
+  color: #19ae8e;
+  font-size: calc(5vw + 1rem);
+  text-align: center;
+}
+
+.details-info p:last-of-type {
+  text-align: justify;
+}
+
+.details-info p:nth-child(4) {
+  display: flex;
+  align-items: center;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.details-info button {
+  background-color: #fff;
+  border: 4px solid #17ae8e;
+  color: #17ae8e;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px;
+  width: auto;
+}
+
+.details-info button:hover {
+  background-color: #17ae8e;
+  color: #fff;
+}
+
+.color-square {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.item-image {
+  border: 0.5px solid gainsboro;
+  border-radius: 15px;
+  width: 450px;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .details-wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: o;
+  }
+
+  .details-wrapper div {
+    padding: 1rem;
+  }
+
+  .details-info p {
+    padding: 0 10%;
+  }
+
+  .details-info p:first-of-type {
+    border: none;
+    font-size: calc(7vw + 1rem);
+    margin-bottom: 30px;
+  }
+
+  .item-image {
+    width: 60vw;
+  }
 }
