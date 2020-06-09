@@ -17,22 +17,33 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-wrapper">
-      <h1>PHONES {process.env.REACT_APP_API_URL}</h1>
-      <div className="card-wrapper">
-        {this.state.items.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="card-container"
-              onClick={() => this.props.history.push(`/phones/${item.id}`)}
-            >
-              <p className="card-header">{item.name}</p>
-              <p className="card-subheader">Price: <span> {item.price} €</span></p>
-              <p className="card-body"> {item.description} </p>
-            </div>
-          );
-        })}
-      </div>
+        <h1>PHONES {process.env.REACT_APP_API_URL}</h1>
+        <div className="card-wrapper">
+          {this.state.items.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className="card-container"
+                onClick={() => this.props.history.push(`/phones/${item.id}`)}
+              >
+                <div className="img-container">
+                  <img
+                    alt="mobile"
+                    src={`http://localhost:3003/images/${item?.imageFileName}`}
+                  />
+                </div>
+
+                <div>
+                  <p className="card-header">{item.name}</p>
+                  <p className="card-subheader">
+                    Price: <span> {item.price} €</span>
+                  </p>
+                  <p className="card-body"> {item.description} </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
